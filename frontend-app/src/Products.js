@@ -1,6 +1,7 @@
 import React from 'react';
 import Product from './Product';
 import './Products.css';
+import { useEffect } from 'react';
 
 const DUMMY_PRODUCTS = [
     {
@@ -26,6 +27,13 @@ const DUMMY_PRODUCTS = [
     }
 ]
 const Products = () => {
+
+    // useEffect(() => {
+    //     const fetchHandler = async () => {
+    //         await fetch('')
+    //     }
+    // },[])
+
   return (
     <div className='main'>
         <ul>
