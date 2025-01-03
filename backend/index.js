@@ -5,7 +5,7 @@ import cors from 'cors';
 // import routes from './routes/soccerRoutes';
 
 const app = express();
-// const express = require('express');
+const express = require('express');
 const PORT = 3000;
 
 // mongo connection

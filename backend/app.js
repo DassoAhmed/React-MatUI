@@ -1,32 +1,31 @@
-//import statements
+// Import statements
 const express = require('express');
 const mongoose = require('mongoose');
 // const router = require('./routes/product-routes');
+require('dotenv').config(); // Load environment variables from .env file
 
-
-
-//Middlewares
-
+// Middlewares
 const app = express();
+app.use(express.json()); // Middleware to parse JSON requests
 
-
-//routes
-
+// Routes
 // app.use('/products', router);
 
-//connections and port
+// Database connection
 mongoose.connect(
-    "mongodb+srv://dassoahmed:655838075Ma$@cluster0.utf3l.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    process.env.MONGODB_URI, // Use environment variable for MongoDB URI
     {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }    
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    }
 ).then(() => {
     console.log("Connected to Database");
-    
-}).catch(err =>{
-   console.log(err);
+}).catch(err => {
+    console.error("Database connection error:", err);
 });
 
-app.listen(5000);
-
+// Start server
+const PORT = process.env.PORT || 5000; // Use environment variable for port
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
