@@ -5,7 +5,6 @@ const Product = mongoose.model('Product', ProductSchema)
 
 export const addNewProduct = async (req, res) => {
     let newProduct = new Product(req.body)
-
     try{
         const product = await newProduct.save()
         res.json(product)
@@ -14,3 +13,11 @@ export const addNewProduct = async (req, res) => {
     }
 }
 
+export const getProducts = async (req,res) => {
+    try{
+        const product = await Product.find({})
+        res.json(product)
+    }catch (err) {
+        res.send(err)
+    }
+}

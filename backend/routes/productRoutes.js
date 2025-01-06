@@ -1,10 +1,12 @@
 import {
-    addNewProduct
+    addNewProduct,
+    getProducts
 } from '../controllers/productControllers'
 
 const routes = (app) => {
     app.route('/shop')
-    .post(addNewProduct)
+    .get(getProducts) // get endpoints
+    .post(addNewProduct)// pOST endpoint
 }
 
 export default routes
