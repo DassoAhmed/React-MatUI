@@ -1,9 +1,9 @@
 import {
     addNewProduct
-} from '../controllers/productController'
+} from '../controllers/productControllers'
 
 const routes = (app) => {
-    app.route('/products')
+    app.route('/shop')
     .post(addNewProduct)
 }
 

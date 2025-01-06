@@ -5,7 +5,7 @@ import cors from 'cors';
 import routes from './routes/productRoutes';
 
 const app = express();
-const PORT = 5000;
+const PORT = 3000;
 
 //mongo connection
 mongoose.Promise = global.Promise
@@ -18,7 +18,7 @@ app.use(bodyParser.json())
 //cors
 app.use(cors())
 
-// routes(app)
+routes(app)
 
 app.get('/', (req,res) =>
     res.send(`Our Application Is Running ${PORT}`)
