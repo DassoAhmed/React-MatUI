@@ -3,7 +3,7 @@ import {
     getProducts,
     getProductWithId,
     updateProduct,
-    deleteProduct
+    deleteProduct,
 } from '../controllers/productControllers'
 
 const routes = (app) => {
