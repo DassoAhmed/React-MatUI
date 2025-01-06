@@ -7,7 +7,7 @@ const ProductSchema = new Schema({
         type: String,
         required: true
     },
-    description:{
+    Image:{
         type: String,
         required: true
     },
@@ -15,7 +15,7 @@ const ProductSchema = new Schema({
         type: Number,
         required: true
     },
-    imgURL:{
+    description:{
         type: String,
         required: true
     },

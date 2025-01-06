@@ -1,7 +1,7 @@
 import React from 'react';
 import Product from './Product';
 import './Products.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const DUMMY_PRODUCTS = [
     {
@@ -28,14 +28,21 @@ const DUMMY_PRODUCTS = [
 ]
 const Products = () => {
 
-    // useEffect(() => {
-    //     const fetchHandler = async () => {
-    //         await fetch('')
-    //     }
-    // },[])
+    const [products,setProducts] = useState([]);
+
+    useEffect(() => {
+        const fetchHandler = async () => {
+            await fetch('http://localhost:3000/') 
+            .then((res) => res.json())
+            .then((data) => setProducts(data.products))
+            .catch(err => console.log(err))
+        };
+        fetchHandler();
+    },[]);
+    console.log(products);
 
   return (
-    <div className='main'>
+    <div className="main">
         <ul>
             {DUMMY_PRODUCTS.map((product,key)=>(
                 <li key={key}>
