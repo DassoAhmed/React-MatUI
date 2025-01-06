@@ -30,3 +30,25 @@ export const getProductWithId = async (req,res) => {
         res.send(err)
     }
 }
+
+export const updateProduct = async (req,res) => {
+    try{
+        const product = await Product.findOneAndUpdate(
+                { _id: req.params.ProductId },
+                req.body,
+                { new: true }           
+        )
+        res.json(product)
+    }catch (err) {
+        res.send(err)
+    }
+}
+
+export const deleteProduct = async (req, res) => {
+    try{
+        await Product.deleteOne({ _id: req.params.ProductId})
+        res.json({ message: 'Successfully deleted Product'})
+    }catch (err) {
+        res.send(err)
+    }
+}
