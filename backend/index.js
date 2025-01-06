@@ -1,30 +1,29 @@
-import express from 'express';
-import bodyparser from 'body-parser';
-import mongoose from 'mongoose';
+import express from 'express'
+import mongoose from 'mongoose'
+import bodyParser from 'body-parser';
 import cors from 'cors';
-// import routes from './routes/soccerRoutes';
+import routes from './routes/productRoutes';
 
 const app = express();
-const express = require('express');
-const PORT = 3000;
+const PORT = 5000;
 
-// mongo connection
+//mongo connection
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb://localhost/')
+mongoose.connect('mongodb://localhost/shop')
 
-// bodyparser
-app.use(bodyparser.urlencoded({ extended: true}))
-app.use(bodyparser.json())
+//bodyParser
+app.use(bodyParser.urlencoded({ extended: true}))
+app.use(bodyParser.json())
 
-//Cors
+//cors
 app.use(cors())
 
-routes(app)
+// routes(app)
 
-app.get('/',(req, res) =>
-    res.send(`Our Application Is Running ${PORT}` )
+app.get('/', (req,res) =>
+    res.send(`Our Application Is Running ${PORT}`)
 )
 
-app.listen(PORT,() =>
-    console.log(`Your Soccer Server is Running on Port ${PORT}`)
+app.listen(PORT,()=>
+    console.log(`Server is running on port ${PORT}`)
 )
