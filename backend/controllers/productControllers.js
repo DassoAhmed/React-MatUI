@@ -21,3 +21,12 @@ export const getProducts = async (req,res) => {
         res.send(err)
     }
 }
+
+export const getProductWithId = async (req,res) => {
+    try{ 
+        const product = await Product.findById(req.params.ProductId)
+        res.json(product)
+    }catch (err) {
+        res.send(err)
+    }
+}
