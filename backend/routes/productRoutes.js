@@ -1,3 +1,4 @@
+import { Router } from 'express'
 import {
     addNewProduct,
     getProducts,
@@ -9,7 +10,7 @@ import {
 const routes = (app) => {
     app.route('/shop')
     .get(getProducts) // get endpoints
-    .post(addNewProduct)// pOST endpoint
+    .post(addNewProduct)// POST endpoint
 
      app.route('/product/:ProductId') 
      .get(getProductWithId)//Get Specific product
@@ -17,5 +18,7 @@ const routes = (app) => {
      .delete(deleteProduct)// delete a specific Product
 
 }
+
+
 
 export default routes

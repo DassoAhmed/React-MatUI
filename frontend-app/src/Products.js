@@ -1,7 +1,9 @@
 import React from 'react';
 import Product from './Product';
 import './Products.css';
+// import axios from 'axios';
 import { useEffect, useState } from 'react';
+
 
 const DUMMY_PRODUCTS = [
     {
@@ -32,7 +34,7 @@ const Products = () => {
 
     useEffect(() => {
         const fetchHandler = async () => {
-            await fetch('http://localhost:3000/') 
+            await fetch('http://127.0.0.1:27017/shop') 
             .then((res) => res.json())
             .then((data) => setProducts(data.products))
             .catch(err => console.log(err))
@@ -44,7 +46,7 @@ const Products = () => {
   return (
     <div className="main">
         <ul>
-            {DUMMY_PRODUCTS.map((product,key)=>(
+            {products.map((product,key)=>(
                 <li key={key}>
                     <Product 
                     id={key} 
