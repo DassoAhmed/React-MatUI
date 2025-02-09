@@ -2,7 +2,7 @@
 import './App.css';
 import Header from './Header';
 import Products from './Products';
-import { Switch} from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 
 function App() {
   return (

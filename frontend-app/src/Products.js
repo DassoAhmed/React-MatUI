@@ -42,11 +42,10 @@ const Products = () => {
         fetchHandler();
     },[]);
     console.log(products);
-
   return (
     <div className="main">
         <ul>
-            {products.map((product,key)=>(
+            {DUMMY_PRODUCTS.map((product,key)=>(
                 <li key={key}>
                     <Product 
                     id={key} 
